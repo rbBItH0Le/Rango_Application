@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
 # Create your views here.
 def index(request):
-    linkabout='Rango says hey there partner!:<a href="/rango/about/">About</a>'
-    return HttpResponse(linkabout)
+    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+
+    return render(request, 'rango/index.html', context=context_dict)
 
 
 def about(request):
-    linkindex='Rango says here is the about page.:<a href="/rango/">Index</a>'
-    return HttpResponse(linkindex)
+    context_dict = {'boldmessage': 'This tutorial has been put together by Rohan'}
+    return render(request, 'rango/about.html', context=context_dict)
